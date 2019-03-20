@@ -166,7 +166,7 @@ public class PSPDFKitModule extends ReactContextBaseJavaModule implements Applic
     public Map<String, Object> getConstants() {
         final Map<String, Object> constants = new HashMap<>();
         constants.put(VERSION_KEY, PSPDFKit.VERSION);
-        constants.put('KOKOT', 'IDE TO');
+        constants.put("KOKOT", "IDE TO");
         return constants;
     }
 
