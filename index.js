@@ -127,7 +127,7 @@ class PSPDFKitView extends React.Component {
     if (Platform.OS === "android") {
       UIManager.dispatchViewManagerCommand(
         findNodeHandle(this.refs.pdfView),
-        UIManager.RCTPSPDFKitView.Commands.saveCurrentDocument,
+        UIManager.getViewManagerConfig('RCTPSPDFKitView').Commands.saveCurrentDocument,
         []
       );
     } else if (Platform.OS === "ios") {
