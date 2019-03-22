@@ -38,6 +38,9 @@ import com.pspdfkit.instant.ui.InstantPdfActivity;
 import com.pspdfkit.listeners.SimpleDocumentListener;
 import com.pspdfkit.ui.PdfActivity;
 import com.pspdfkit.ui.PdfFragment;
+import com.pspdfkit.signatures.SignatureManager;
+import com.pspdfkit.signatures.signers.Pkcs12Signer;
+import com.pspdfkit.signatures.signers.Signer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -159,6 +162,12 @@ public class PSPDFKitModule extends ReactContextBaseJavaModule implements Applic
                 }
             };
         }
+    }
+
+    @ReactMethod
+    public synchronized void initSigner(@NonNull String displayName, @NonNull String certificate) {
+        final Signer camasysSigner = new Pkcs12Signer(displayName, Uri.parse("file:///android_asset/" + certificate));
+        SignatureManager.addSigner("camasys_signer", camasysSigner);
     }
 
     @NonNull
